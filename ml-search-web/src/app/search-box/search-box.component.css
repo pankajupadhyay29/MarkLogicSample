@@ -1,9 +1,9 @@
 .box {
-    padding-top: 40px;
     text-align: center;
+    margin-top: 40px;
 }
 
-.txtwidth {
+.txt {
     border-radius: 5px;
     padding: 10px;
     width: 300px;
@@ -13,8 +13,5 @@
     height: 40px;
     margin-left: 5px;
     width: 60px;
-}
-
-.search {
     display: inline-block;
 }

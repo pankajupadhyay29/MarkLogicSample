@@ -1,0 +1,8 @@
+<div>
+    <app-search-box [searchTerm]="searchQuery$ | async" (onSearch)="onSearch($event)"></app-search-box>
+    <div *ngIf="loading$ | async"> Loading...</div>
+    <div *ngFor="let search of searchResults$ | async" class="">
+        <app-search-result *ngIf="search" [result]="search" class="list"></app-search-result>
+    </div>
+
+</div>

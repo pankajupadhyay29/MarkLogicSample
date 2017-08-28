@@ -16,4 +16,9 @@ export class CompleteSearchAction implements Action {
   constructor(public searchData: SearchData) {}
 }
 
+export class ChangePage implements Action {
+  readonly type = ACTION_TYPES.COMPLETE_SEARCH;
+  constructor(public searchData: SearchData) {}
+}
+
 export type App_Actions = StartSearchAction | CompleteSearchAction;

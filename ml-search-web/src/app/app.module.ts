@@ -14,13 +14,15 @@ import { SearchEffects } from './effects/SearchEffect';
 import { SearchContainerComponent } from './search-container/search-container.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { ViewDocComponent } from './view-doc/view-doc.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchContainerComponent,
     SearchBoxComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    ViewDocComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,10 @@ import { SearchResultComponent } from './search-result/search-result.component';
         path: '',
         component: SearchContainerComponent
       },
+      {
+        path: 'view',
+        component: ViewDocComponent
+      }
     ]),
   ],
   providers: [],

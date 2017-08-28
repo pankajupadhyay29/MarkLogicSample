@@ -1,4 +1,4 @@
-import { SearchResult, Query, SearchData } from '../model/models';
+import { SearchResult, Query, SearchData, ViewData } from '../model/models';
 export interface AppState {
   search: SearchState;
 }
@@ -7,6 +7,10 @@ export interface SearchState {
   searchQuery: Query;
   searchData: SearchData;
   isSearching: boolean;
+}
+
+export interface viewState {
+  viewData: ViewData;
 }
 
 export const BLANK_QUERY: Query = {

@@ -1,7 +1,7 @@
 import { ActionReducerMap } from '@ngrx/store';
-import { INITIAL_SEARCH_STATE, AppState, SearchState } from './application-state';
+import { INITIAL_SEARCH_STATE, AppState, SearchState, viewState } from './application-state';
 import { App_Actions, ACTION_TYPES, StartSearchAction } from './actions';
-import { SearchData } from '../model/models';
+import { SearchData, ViewData } from '../model/models';
 
 export function searchReducer(state: SearchState = INITIAL_SEARCH_STATE, action): SearchState {
   switch (action.type) {
@@ -15,6 +15,21 @@ export function searchReducer(state: SearchState = INITIAL_SEARCH_STATE, action)
       return state;
   }
 }
+
+export function viewReducer(state: viewState, action): viewState {
+  switch (action.type) {
+    case ACTION_TYPES.START_VIEW:
+      return Object.assign({}, state, { viewData: action.viewData});
+
+    case ACTION_TYPES.VIEW_SEARCH:
+      return Object.assign({}, state, {viewData: action.viewData});
+
+    default:
+      return state;
+  }
+}
+
+export const getViewData = (state: AppState) => state.search.searchQuery.searchTerm;
 
 export const getSearchTerm = (state: AppState) => state.search.searchQuery.searchTerm;
 

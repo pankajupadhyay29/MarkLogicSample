@@ -39,12 +39,14 @@ export class SearchEffects {
 
       const nextSearch$ = this.actions$.ofType(ACTION_TYPES.START_SEARCH).skip(1);
 
-      const url = `${SERVICE_URL}?text=${query.searchTerm}&pageNumber=${query.pageNumber}&pageSize=${PAGE_SIZE}`;
+      const url = `${SERVICE_URL}?text=${query.searchTerm}&page_no=${query.pageNumber}&page_size=${PAGE_SIZE}`;
 
       return this.http.get(url)
         .takeUntil(nextSearch$)
         .map((result: any) => {
           const searchData = result.json();
+          console.log("search data:" , searchData);
+
           return new CompleteSearchAction({totalCount: searchData.totalCount, data: searchData.data, query});
         })
         .catch((err) => {

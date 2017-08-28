@@ -16,11 +16,15 @@ export class SearchContainerComponent implements OnInit {
   searchResults$: Observable<SearchResult[]>;
   searchData$: Observable<SearchData>;
   loading$: Observable<boolean>;
+  totalCount$: Observable<number>;
+  pageNumber$: Observable<number>;  
 
   constructor(private store: Store<AppState>) {
     this.searchQuery$ = store.select(appReducer.getSearchTerm);
     this.searchResults$ = store.select(appReducer.getSearchResults);
     this.loading$ = store.select(appReducer.getSearchLoading);
+    this.totalCount$ = store.select(appReducer.getTotalCount);
+    this.pageNumber$ = store.select(appReducer.getPageNumber);
   }
 
   ngOnInit(): void {
@@ -31,9 +35,9 @@ export class SearchContainerComponent implements OnInit {
     const query: Query = {searchTerm: text, pageNumber: 1};
     this.store.dispatch(new StartSearchAction(query));
   }
-
-  onPageChange(searchTerm, pageNumber) {
-    const query: Query = {searchTerm , pageNumber};
-    this.store.dispatch(new StartSearchAction(query));
-  }
+  
+  onPageChange(event) { 
+    const newQuery: Query = {searchTerm: event.query , pageNumber: event.currentPageNumber};
+    this.store.dispatch(new StartSearchAction(newQuery));
+   }
 }

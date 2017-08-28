@@ -8,7 +8,8 @@ var _ = require('lodash');
 exports.query = function(req, res) {
     var qb = marklogic.queryBuilder;
     const pageNumber = req.query.page_no;
-    const pageSize = 10;
+    //const pageSize = 10;
+    const pageSize = req.query.page_size;
     const start = (pageNumber - 1) * pageSize;
     const query = db.documents.query(
         qb.where(qb.byExample({ tags: req.query.text }))

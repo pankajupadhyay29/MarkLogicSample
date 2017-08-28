@@ -18,12 +18,11 @@ exports.query = function(req, res) {
 
         const end = start + pageSize;
 
-        res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "X-Requested-With");
         const data = _.slice(documents, start, start + pageSize).map((document) => {
             return { url: document.uri, text: document.content.text.substring(0, 100) };
         })
-        res.send({ totalCounts: documents.length, data: data });
+        res.send({ totalCounts: documents.length, data: data }); //this query needs to optimise to get the document of the current page only
     }, function(error) {
         res.send(JSON.stringify(error, null, 2));
     });

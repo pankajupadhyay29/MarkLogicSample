@@ -1,0 +1,35 @@
+.header {
+    background-color: black;
+    color: #fff;
+    height: 40px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.navbar {
+    font-family: Gill Sans Extrabold, sans-serif;
+    margin-left: 16px;
+    margin-top: 10px;
+}
+
+.content {
+    height: calc(100vh - 40px);
+    overflow: auto;
+    width: 100%;
+}
+
+.flex-column,
+.flex-row {
+    display: flex;
+    width: 100%;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}

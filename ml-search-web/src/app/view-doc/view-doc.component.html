@@ -1,0 +1,23 @@
+<div class="container" *ngIf="docs">
+    <div class="user_data">
+        <div class="circle"></div>
+        <div class="user">
+            <app-user-details [Username]="user_name"></app-user-details>
+        </div>
+    </div>
+    <div>
+        <div class="content_title">
+            <div class="title">
+                <app-title [title]="title"></app-title>
+            </div>
+        </div>
+        <div class="answers" *ngFor="let answer of answers">
+            <app-answers [ans]="answer.text" [ids]="answer.id" [accepted]="accepted_ans_id"></app-answers>
+        </div>
+    </div>
+    <label>Comments:
+        <div class="comments" *ngFor="let comment of com">
+            <app-comments [comment]="comment.text"></app-comments>
+        </div>
+    </label>
+</div>

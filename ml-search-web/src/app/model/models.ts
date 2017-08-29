@@ -13,3 +13,10 @@ export interface SearchData {
   totalCount: number;
   data: Array<SearchResult>;
 }
+
+export interface Document{
+  question: Question;
+  user: User;
+  answers: Array<Answer>;
+  comments: Array<Comment>;
+}

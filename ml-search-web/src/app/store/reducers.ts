@@ -4,7 +4,6 @@ import { App_Actions, ACTION_TYPES, StartSearchAction } from './actions';
 import { SearchData } from '../model/models';
 
 export function searchReducer(state: SearchState = INITIAL_SEARCH_STATE, action): SearchState {
-  console.log(state);
   switch (action.type) {
     case ACTION_TYPES.START_SEARCH:
       return Object.assign({}, state, { isSearching: true, searchQuery: action.query});

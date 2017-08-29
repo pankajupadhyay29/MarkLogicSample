@@ -17,7 +17,7 @@ export class SearchContainerComponent implements OnInit {
   searchData$: Observable<SearchData>;
   loading$: Observable<boolean>;
   totalCount$: Observable<number>;
-  pageNumber$: Observable<number>;  
+  pageNumber$: Observable<number>;
 
   constructor(private store: Store<AppState>) {
     this.searchQuery$ = store.select(appReducer.getSearchTerm);
@@ -35,8 +35,8 @@ export class SearchContainerComponent implements OnInit {
     const query: Query = {searchTerm: text, pageNumber: 1};
     this.store.dispatch(new StartSearchAction(query));
   }
-  
-  onPageChange(event) { 
+
+  onPageChange(event) {
     const newQuery: Query = {searchTerm: event.query , pageNumber: event.currentPageNumber};
     this.store.dispatch(new StartSearchAction(newQuery));
    }

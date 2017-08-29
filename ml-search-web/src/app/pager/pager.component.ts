@@ -23,7 +23,6 @@ export class PagerComponent implements OnInit {
 
   ngOnInit() {
    this.pagesArray = this.getPagesList();
-   console.log(this.pagesArray);
   }
 
   ngOnChange({totalCount, currentPage, maxRecordInPage}) {
@@ -31,30 +30,51 @@ export class PagerComponent implements OnInit {
   }
 
   next() {
+    if (this.isLastSet()) {
+      return;
+    }
+
     this.CurrentSet += 1;
     this.pagesArray = this.getPagesList();
   }
 
   previous() {
+    if (this.isFirstSet()) {
+      return;
+    }
+
     this.CurrentSet -= 1;
     this.pagesArray = this.getPagesList();
   }
 
-  getPagesList() {
-    console.log(this);
+  isFirstSet() {
+    return this.CurrentSet === 0;
+  }
 
-    const totalPages = Math.ceil(this.totalCount / this.maxRecordInPage);
-    const currentSetStarting = (this.SetSize * this.CurrentSet) + 1;
+  totalPageCount() {
+    return Math.ceil(this.totalCount / this.maxRecordInPage);
+  }
+
+  isLastSet() {
+    return this.CurrentSet >= (Math.ceil(this.totalPageCount() / this.SetSize) - 1);
+  }
+
+  getPagesList() {
+    if (this.totalCount === 0) {
+      return [];
+    }
+
+    const currentSetStarting = (this.SetSize * this.CurrentSet);
     const pagesArray = [];
-    for (let i = currentSetStarting; i < currentSetStarting + this.SetSize; i++) {
+    const currentSetEnding = Math.min(currentSetStarting + this.SetSize, this.totalPageCount());
+    for (let i = currentSetStarting + 1; i < currentSetEnding; i++) {
       pagesArray.push(i);
-    }    
-    return pagesArray;    
+    }
+
+    return pagesArray;
   }
 
   pageChange(pageNumber) {
-    console.log(this.query);
-    console.log(pageNumber);
     this.onPageChange.emit({query: this.query, currentPageNumber: pageNumber});
   }
 }

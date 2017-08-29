@@ -45,6 +45,7 @@ export class SearchEffects {
         .takeUntil(nextSearch$)
         .map((result: any) => {
           const searchData = result.json();
+
           return new CompleteSearchAction({totalCount: searchData.totalCount, data: searchData.data, query});
         })
         .catch((err) => {

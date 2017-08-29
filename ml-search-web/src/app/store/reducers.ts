@@ -4,6 +4,7 @@ import { App_Actions, ACTION_TYPES, StartSearchAction } from './actions';
 import { SearchData } from '../model/models';
 
 export function searchReducer(state: SearchState = INITIAL_SEARCH_STATE, action): SearchState {
+  console.log(state);
   switch (action.type) {
     case ACTION_TYPES.START_SEARCH:
       return Object.assign({}, state, { isSearching: true, searchQuery: action.query});
@@ -23,3 +24,5 @@ export const getPageNumber = (state: AppState) => state.search.searchQuery.pageN
 export const getSearchResults = (state: AppState) => state.search.searchData.data;
 
 export const getSearchLoading = (state: AppState) => state.search.isSearching;
+
+export const getTotalCount = (state: AppState) => state.search.searchData.totalCount;

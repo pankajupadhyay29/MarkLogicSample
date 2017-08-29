@@ -1,0 +1,5 @@
+<div *ngIf="totalPages>0">
+    <button class="page-number" *ngFor="let page of pagesArray" (click)="pageChange(page)">
+      {{page}}
+    </button>
+</div>

@@ -43,3 +43,20 @@ export const getDocUrl = (state: AppState) => state.view_doc.url;
 
 export const getDocument = (state: AppState) => state.view_doc.doc;
 
+export const getAnswers = (state: AppState) => state.view_doc.doc.answers;
+
+export const getAnswerId = (state: AppState) => state.view_doc.doc.acceptedAnswerId;
+
+export const getComments = (state: AppState) => state.view_doc.doc.comments;
+
+export const getTitle = (state: AppState) => state.view_doc.doc.title;
+
+export const getOwner = (state: AppState) => state.view_doc.doc.owner;
+
+export const getText = (state: AppState) => state.view_doc.doc.text;
+
+export const hasComments = (state: AppState) => state.view_doc.doc.comments.length > 0;
+
+export const hasAnswers = (state: AppState) => state.view_doc.doc.answers.length > 0;
+
+

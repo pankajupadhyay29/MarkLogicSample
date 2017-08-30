@@ -15,7 +15,5 @@
 }
 
 .content {
-    height: calc(100vh - 40px);
-    overflow: auto;
     width: 100%;
 }

@@ -68,7 +68,7 @@ export class PagerComponent implements OnInit {
     const currentSetStarting = (this.SetSize * this.CurrentSet);
     const pagesArray = [];
     const currentSetEnding = Math.min(currentSetStarting + this.SetSize, this.totalPageCount());
-    for (let i = currentSetStarting + 1; i < currentSetEnding; i++) {
+    for (let i = currentSetStarting + 1; i <= currentSetEnding; i++) {
       pagesArray.push(i);
     }
 

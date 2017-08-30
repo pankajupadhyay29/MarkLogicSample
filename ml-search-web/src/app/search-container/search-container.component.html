@@ -1,6 +1,6 @@
 <div>
     <app-search-box [searchTerm]="searchQuery$ | async" (onSearch)="onSearch($event)"></app-search-box>
-
+    <div *ngIf="noData$ | async">No Data Found</div>
     <div class="results">
         <div *ngIf="totalCount$ | async" class="result-info">
             {{totalCount$ | async}} matching results found.
@@ -12,6 +12,5 @@
         <div class="paging">
             <app-pager [query]="searchQuery$ | async" (onPageChange)="onPageChange($event)" [totalCount]="totalCount$ | async" [currentPage]="pageNumber$ | async" [maxRecordInPage]="10"></app-pager>
         </div>
-
     </div>
 </div>

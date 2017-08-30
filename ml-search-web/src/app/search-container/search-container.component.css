@@ -1,18 +1,13 @@
 .results {
     margin: 10px;
+    width: 600px;
 }
 
 .result-info {
     margin-bottom: 20px;
     color: #787878;
-    text-align: center;
-}
-
-.list:nth-child(even) {
-    background: #ebebeb;
 }
 
 .paging {
     margin-top: 10px;
-    text-align: center;
 }

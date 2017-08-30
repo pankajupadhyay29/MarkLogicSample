@@ -32,11 +32,7 @@ export interface User {
 }
 
 export interface Answer {
-<<<<<<< HEAD
-  id: string
-=======
   id: string;
->>>>>>> 08e9d4fef9cbf8b14cb537907526eb001ad09ce3
   text: string;
   owner: User;
 }

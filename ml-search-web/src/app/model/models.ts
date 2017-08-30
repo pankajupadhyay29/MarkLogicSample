@@ -32,7 +32,7 @@ export interface User {
 }
 
 export interface Answer {
-  id: string
+  id: string;
   text: string;
   owner: User;
 }

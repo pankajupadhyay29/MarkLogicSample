@@ -25,7 +25,7 @@ describe('PagerComponent', () => {
 
   describe('getPagesList', () => {
     it('should return empty page list if totalCount is 0', () => {
-      component.totalCount = 20;
+      component.totalCount = 0;
 
       expect(component.getPagesList().length).toEqual(0);
     });
@@ -43,12 +43,12 @@ describe('PagerComponent', () => {
   });
 
   describe('isFirstSet', () => {
-    it('should return false if current set is 0', () => {
+    it('should return false if current set is not 0', () => {
       component.CurrentSet = 1;
 
       expect(component.isFirstSet()).toEqual(false);
     });
-    it('should return true if current set is not 0', () => {
+    it('should return true if current set is 0', () => {
       component.CurrentSet = 0;
 
       expect(component.isFirstSet()).toEqual(true);
@@ -67,7 +67,7 @@ describe('PagerComponent', () => {
   });
 
   describe('isLastSet', () => {
-    it('should return false if set is last ', () => {
+    it('should return false if set is not last ', () => {
       component.totalCount = 20;
       component.maxRecordInPage = 2;
       component.SetSize = 2;
@@ -80,7 +80,7 @@ describe('PagerComponent', () => {
       component.totalCount = 20;
       component.maxRecordInPage = 2;
       component.SetSize = 2;
-      component.CurrentSet = 5;
+      component.CurrentSet = 10;
 
       expect(component.isLastSet()).toEqual(true);
     });   

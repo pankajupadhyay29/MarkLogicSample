@@ -1,0 +1,16 @@
+.results {
+    margin: 10px;
+}
+
+.result-info {
+    margin-bottom: 20px;
+    color: #787878;
+}
+
+.list {
+    padding: 5px;
+}
+
+.list:nth-child(even) {
+    background: #ebebeb;
+}

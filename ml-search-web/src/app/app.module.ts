@@ -10,11 +10,13 @@ import { PagerComponent } from './pager/pager.component';
 
 
 import { AppComponent } from './app.component';
-import { searchReducer } from './store/reducers';
+import { searchReducer, viewDocReducer } from './store/reducers';
 import { SearchEffects } from './effects/SearchEffect';
+import { ViewDocEffect } from './effects/ViewDocEffect';
 import { SearchContainerComponent } from './search-container/search-container.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { ViewDocContainerComponent } from './view-doc-container/view-doc-container.component';
 
 @NgModule({
   declarations: [
@@ -22,19 +24,24 @@ import { SearchResultComponent } from './search-result/search-result.component';
     SearchContainerComponent,
     SearchBoxComponent,
     SearchResultComponent,
-     PagerComponent
+     PagerComponent,
+     ViewDocContainerComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    StoreModule.forRoot({search: searchReducer}),
-    EffectsModule.forRoot([SearchEffects]),
+    StoreModule.forRoot({search: searchReducer, view_doc: viewDocReducer}),
+    EffectsModule.forRoot([SearchEffects, ViewDocEffect]),
     RouterModule.forRoot([
       {
         path: '',
         component: SearchContainerComponent
+      },
+      {
+        path: 'view',
+        component: ViewDocContainerComponent
       },
     ]),
   ],

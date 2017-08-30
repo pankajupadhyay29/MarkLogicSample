@@ -1,8 +1,14 @@
 <div>
     <app-search-box [searchTerm]="searchQuery$ | async" (onSearch)="onSearch($event)"></app-search-box>
-    <div *ngIf="loading$ | async"> Loading...</div>
-    <div *ngFor="let search of searchResults$ | async" class="">
-        <app-search-result *ngIf="search" [result]="search" class="list"></app-search-result>
+
+    <div class="results">
+        <div *ngIf="totalCount$ | async" class="result-info">
+            {{totalCount$ | async}} matching results found.
+        </div>
+        <div *ngIf="loading$ | async"> Loading...</div>
+        <div *ngFor="let search of searchResults$ | async" class="list">
+            <app-search-result *ngIf="search" [result]="search"></app-search-result>
+        </div>
+        <app-pager [query]="searchQuery$ | async" (onPageChange)="onPageChange($event)" [totalCount]="totalCount$ | async" [currentPage]="pageNumber$ | async" [maxRecordInPage]="10"></app-pager>
     </div>
-    <app-pager [query]="searchQuery$ | async" (onPageChange)="onPageChange($event)" [totalCount]="totalCount$ | async" [currentPage]="pageNumber$ | async" [maxRecordInPage]="10"></app-pager>
 </div>

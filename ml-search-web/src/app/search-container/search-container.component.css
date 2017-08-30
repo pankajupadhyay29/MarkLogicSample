@@ -5,10 +5,7 @@
 .result-info {
     margin-bottom: 20px;
     color: #787878;
-}
-
-.list {
-    padding: 5px;
+    text-align: center;
 }
 
 .list:nth-child(even) {
@@ -16,5 +13,6 @@
 }
 
 .paging {
-    margin-left: 40%;
+    margin-top: 10px;
+    text-align: center;
 }

@@ -1,7 +1,7 @@
 <div>
     <app-search-box [searchTerm]="searchQuery$ | async" (onSearch)="onSearch($event)"></app-search-box>
-    <div *ngIf="noData$ | async">No Data Found</div>
     <div class="results">
+        <div *ngIf="noData$ | async">No Data Found</div>
         <div *ngIf="totalCount$ | async" class="result-info">
             {{totalCount$ | async}} matching results found.
         </div>

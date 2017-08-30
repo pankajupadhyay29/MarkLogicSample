@@ -1,7 +1,4 @@
-.list {
-    margin-top: 20px;
-    margin-left: 25%;
-}
+.list {}
 
 .ele {
     border: 3px solid black;
@@ -12,6 +9,5 @@ a {
 }
 
 .search {
-    margin-top: 20px;
-    padding-top: 7px;
+    padding: 5px;
 }

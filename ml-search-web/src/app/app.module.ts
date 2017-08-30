@@ -17,6 +17,7 @@ import { SearchContainerComponent } from './search-container/search-container.co
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { ViewDocContainerComponent } from './view-doc-container/view-doc-container.component';
+import { HighlightTextPipe } from './highlight-text.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ViewDocContainerComponent } from './view-doc-container/view-doc-contain
     SearchBoxComponent,
     SearchResultComponent,
      PagerComponent,
-     ViewDocContainerComponent
+     ViewDocContainerComponent,
+     HighlightTextPipe
   ],
   imports: [
     BrowserModule,

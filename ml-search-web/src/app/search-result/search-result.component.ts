@@ -8,6 +8,8 @@ import { SearchResult } from '../model/models';
 })
 export class SearchResultComponent implements OnInit {
   @Input() result: SearchResult;
+  @Input() searchTerm: string;
+
   constructor() { }
 
   ngOnInit() {

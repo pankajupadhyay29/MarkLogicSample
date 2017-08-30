@@ -22,6 +22,7 @@ export class PagerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+   this.CurrentSet = Math.floor(this.currentPage / this.maxRecordInPage);
    this.pagesArray = this.getPagesList();
   }
 
@@ -29,7 +30,7 @@ export class PagerComponent implements OnInit {
     this.pagesArray = this.getPagesList();
   }
 
-  next() {
+  nextSet() {
     if (this.isLastSet()) {
       return;
     }
@@ -38,7 +39,7 @@ export class PagerComponent implements OnInit {
     this.pagesArray = this.getPagesList();
   }
 
-  previous() {
+  previousSet() {
     if (this.isFirstSet()) {
       return;
     }

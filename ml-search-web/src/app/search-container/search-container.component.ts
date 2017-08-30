@@ -31,19 +31,21 @@ export class SearchContainerComponent implements OnInit {
 
   ngOnInit(): void {
     const query = this.route.snapshot.queryParams['query'];
+    const pageNumber = this.route.snapshot.queryParams['pageNumber'];
     if (query) {
-      this.onSearch(query);
+      this.onSearch(query, pageNumber);
     }
   }
 
-  onSearch(text) {
-    const query: Query = {searchTerm: text, pageNumber: 1};
-    this.location.go ('/', `query=${text}`);
+  onSearch(text, pageNumber = 1) {
+    const query: Query = {searchTerm: text, pageNumber};
+    this.location.go ('/', `query=${text}&pageNumber=${pageNumber}`);
     this.store.dispatch(new StartSearchAction(query));
   }
 
   onPageChange(event) {
     const newQuery: Query = {searchTerm: event.query , pageNumber: event.currentPageNumber};
+    this.location.go ('/', `query=${event.query}&pageNumber=${event.currentPageNumber}`);
     this.store.dispatch(new StartSearchAction(newQuery));
    }
 }

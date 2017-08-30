@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  serviceBaseURL: 'http://localhost:3000',
+  serviceBaseURL: 'http://http://marklogicdb5672.cloudapp.net:3000',
 };

@@ -21,6 +21,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { AnswerComponent } from './answer/answer.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { QuestionComponent } from './question/question.component';
+import { HighlightTextPipe } from './highlight-text.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { QuestionComponent } from './question/question.component';
      AnswerComponent,
      UserDetailsComponent,
      QuestionComponent
+     HighlightTextPipe
   ],
   imports: [
     BrowserModule,

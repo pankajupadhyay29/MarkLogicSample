@@ -49,7 +49,7 @@ export class PagerComponent implements OnInit {
   }
 
   isFirstSet() {
-    return this.CurrentSet === 0;
+    return !this.CurrentSet;
   }
 
   totalPageCount() {
@@ -61,7 +61,7 @@ export class PagerComponent implements OnInit {
   }
 
   getPagesList() {
-    if (this.totalCount === 0) {
+    if (!this.totalCount) {
       return [];
     }
 
@@ -76,6 +76,6 @@ export class PagerComponent implements OnInit {
   }
 
   pageChange(pageNumber) {
-    this.onPageChange.emit({query: this.query, currentPageNumber: pageNumber});
+    this.onPageChange.emit({ query: this.query, currentPageNumber: pageNumber });
   }
 }

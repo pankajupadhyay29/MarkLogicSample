@@ -1,11 +1,10 @@
 <div>
-    <app-search-box [searchTerm]="searchQuery$ | async" (onSearch)="onSearch($event)"></app-search-box>
+    <app-search-box [searchTerm]="searchQuery$ | async" (onSearch)="onSearch($event)" [loading]="loading$ | async"></app-search-box>
     <div class="results">
         <div *ngIf="noData$ | async">No Data Found</div>
         <div *ngIf="totalCount$ | async" class="result-info">
             {{totalCount$ | async}} matching results found.
         </div>
-        <div *ngIf="loading$ | async"> Loading...</div>
         <div *ngFor="let search of searchResults$ | async" class="list">
             <app-search-result *ngIf="search" [result]="search" [searchTerm]="searchQuery$ | async"></app-search-result>
         </div>

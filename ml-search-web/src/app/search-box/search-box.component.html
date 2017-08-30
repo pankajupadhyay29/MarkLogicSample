@@ -2,7 +2,8 @@
     <div class="box">
         <div class="form-group search">
             <input type="textbox" class="txt" name="search" [(ngModel)]="searchTerm" placeholder="Search" autofocus required />
-            <button class="btn" [disabled]="!f.form.valid" (click)="search()">Search</button>
+            <button class="btn" [disabled]="!f.form.valid" (click)="search()">Search </button>
+            <img *ngIf="loading" src="/assets/loading.gif" class="loading">
         </div>
     </div>
 </form>

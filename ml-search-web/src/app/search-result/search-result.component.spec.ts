@@ -4,7 +4,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { SearchResultComponent } from './search-result.component';
 
 class MockRouter { public navigate() {}; }
-class MockComponent extends Component {}
 
 describe('SearchResultComponent', () => {
   let component: SearchResultComponent;

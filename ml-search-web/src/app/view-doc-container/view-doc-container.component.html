@@ -11,14 +11,16 @@
         <div class="content_title">
             <div>
                 <app-question [title]="title | async" [text]="text | async"></app-question>
-                <label class="heading">Comments</label>
-                <hr class="heading-separator" />
-                <div class="comments" *ngFor="let comment of comments$ | async">
-                    <app-comments [comment]="comment.text">
-                    </app-comments>
-                    <hr class="separator" />
+                <div *ngIf="hasComments$ | async">
+                    <label class="heading">Comments</label>
+                    <hr class="heading-separator" />
+                    <div class="comments" *ngFor="let comment of comments$ | async">
+                        <app-comments [comment]="comment.text">
+                        </app-comments>
+                        <hr class="separator" />
+                    </div>
                 </div>
-                <div class="margin-top-50">
+                <div class="margin-top-50" *ngIf="hasAnswers$ | async">
                     <div class="answers" *ngFor="let answer of answers$ | async">
                         <label class="heading">Answer</label>
                         <hr class="heading-separator">

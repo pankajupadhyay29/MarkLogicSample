@@ -34,7 +34,7 @@ import { HighlightTextPipe } from './highlight-text.pipe';
      CommentsComponent,
      AnswerComponent,
      UserDetailsComponent,
-     QuestionComponent
+     QuestionComponent,
      HighlightTextPipe
   ],
   imports: [

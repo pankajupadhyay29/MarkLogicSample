@@ -13,6 +13,8 @@ import { GetDocAction } from '../store/actions';
   styleUrls: ["./view-doc-container.component.css"]
 })
 export class ViewDocContainerComponent implements OnInit {
+  hasAnswers$: Observable<any>;
+  hasComments$: Observable<any>;
   text: any;
   title: any;
   owner: any;
@@ -30,11 +32,12 @@ export class ViewDocContainerComponent implements OnInit {
     this.owner = store.select(appReducer.getOwner);
     this.title = store.select(appReducer.getTitle);
     this.text = store.select(appReducer.getText);
+    this.hasAnswers$ = store.select(appReducer.hasAnswers);
+    this.hasComments$ = store.select(appReducer.hasComments);
   }
 
   ngOnInit() {
     const url = this.route.snapshot.queryParams["url"];
     this.store.dispatch(new GetDocAction(url));
-    
   }
 }

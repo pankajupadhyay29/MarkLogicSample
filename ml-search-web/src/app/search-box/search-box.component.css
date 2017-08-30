@@ -19,3 +19,8 @@
     border-radius: 3px;
     background: green;
 }
+
+.loading {
+    height: 40px;
+    position: absolute;
+}

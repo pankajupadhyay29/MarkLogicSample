@@ -15,21 +15,5 @@
 }
 
 .content {
-    height: calc(100vh - 40px);
-    overflow: auto;
     width: 100%;
-}
-
-.flex-column,
-.flex-row {
-    display: flex;
-    width: 100%;
-}
-
-.flex-column {
-    flex-direction: column;
-}
-
-.flex-row {
-    flex-direction: row;
 }

@@ -4,6 +4,7 @@
     background: #ffffff;
     border: 1px solid;
     color: #478CF0;
+    padding: 10px 12px;
 }
 
 .page-number:not(:last-child) {
@@ -18,4 +19,5 @@
 .previous,
 .next {
     border-radius: 8px;
+    width: 90px;
 }

@@ -1,6 +1,5 @@
 .box {
-    text-align: center;
-    margin-top: 40px;
+    margin-top: 45px;
 }
 
 .txt {
@@ -10,8 +9,17 @@
 }
 
 .btn {
-    height: 40px;
+    height: 37px;
     margin-left: 5px;
     width: 60px;
     display: inline-block;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    background: green;
+}
+
+.loading {
+    height: 40px;
+    position: absolute;
 }

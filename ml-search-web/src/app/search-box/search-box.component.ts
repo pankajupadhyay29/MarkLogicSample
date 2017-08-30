@@ -7,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SearchBoxComponent implements OnInit {
   @Input() searchTerm: string;
+  @Input() loading: any;
   @Output() onSearch =  new EventEmitter();
   constructor() { }
 

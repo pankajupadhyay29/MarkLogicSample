@@ -1,5 +1,6 @@
 .results {
     margin: 10px;
+    width: 600px;
 }
 
 .result-info {
@@ -7,10 +8,6 @@
     color: #787878;
 }
 
-.list {
-    padding: 5px;
-}
-
-.list:nth-child(even) {
-    background: #ebebeb;
+.paging {
+    margin-top: 10px;
 }

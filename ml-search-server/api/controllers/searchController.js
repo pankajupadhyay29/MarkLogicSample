@@ -31,7 +31,11 @@ exports.query = function(req, res) {
         const results = response.slice(1)
 
         const data = results.map((document) => {
-            return { url: document.uri, text: document.content.text.substring(0, 100) };
+            const text = document.content.text
+            const firstIndex = _.indexOf(text, req.query.text);
+            const finalText = text.substring(firstIndex > 150 ? firstIndex - 20 : 0, 150);
+
+            return { url: document.uri, text: finalText.replace(/[<,>]/g, (value) => { value == '<' ? '&lt;' : '&gt;' }) };
         });
 
         res.send({ totalCount, data });

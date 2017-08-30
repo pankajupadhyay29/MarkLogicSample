@@ -1,7 +1,7 @@
 <div>
     <app-search-box [searchTerm]="searchQuery$ | async" (onSearch)="onSearch($event)"></app-search-box>
-
     <div class="results">
+        <div *ngIf="noData$ | async">No Data Found</div>
         <div *ngIf="totalCount$ | async" class="result-info">
             {{totalCount$ | async}} matching results found.
         </div>
@@ -9,6 +9,8 @@
         <div *ngFor="let search of searchResults$ | async" class="list">
             <app-search-result *ngIf="search" [result]="search" [searchTerm]="searchQuery$ | async"></app-search-result>
         </div>
-        <app-pager [query]="searchQuery$ | async" (onPageChange)="onPageChange($event)" [totalCount]="totalCount$ | async" [currentPage]="pageNumber$ | async" [maxRecordInPage]="10"></app-pager>
+        <div class="paging">
+            <app-pager [query]="searchQuery$ | async" (onPageChange)="onPageChange($event)" [totalCount]="totalCount$ | async" [currentPage]="pageNumber$ | async" [maxRecordInPage]="10"></app-pager>
+        </div>
     </div>
 </div>

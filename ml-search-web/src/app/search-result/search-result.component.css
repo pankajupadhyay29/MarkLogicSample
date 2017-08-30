@@ -1,0 +1,13 @@
+.list {}
+
+.ele {
+    border: 3px solid black;
+}
+
+a {
+    font-size: 20px;
+}
+
+.search {
+    padding: 5px;
+}

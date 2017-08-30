@@ -1,33 +1,46 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnChanges,
+  Input,
+  Output,
+  EventEmitter,
+  SimpleChanges
+} from "@angular/core";
 import { getPageNumber } from '../store/reducers';
 
 @Component({
-  selector: 'app-pager',
-  templateUrl: './pager.component.html',
-  styleUrls: ['./pager.component.css']
+  selector: "app-pager",
+  templateUrl: "./pager.component.html",
+  styleUrls: ["./pager.component.css"]
 })
-export class PagerComponent implements OnInit {
+export class PagerComponent implements OnInit, OnChanges {  
   @Input() totalCount: number;
   @Input() currentPage: number;
   @Input() maxRecordInPage: number;
   @Input() query: string;
 
-  @Output() onPageChange= new EventEmitter();
+  @Output() onPageChange = new EventEmitter();
 
   CurrentSet = 0;
   TotalSet = 0;
   SetSize = 10;
   pagesArray = [];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-   this.CurrentSet = Math.floor(this.currentPage / this.maxRecordInPage);
-   this.pagesArray = this.getPagesList();
+    this.CurrentSet = this.getCurrentSet();
+    this.pagesArray = this.getPagesList();
   }
 
-  ngOnChange({totalCount, currentPage, maxRecordInPage}) {
-    this.pagesArray = this.getPagesList();
+  ngOnChanges(changes: SimpleChanges): void {
+    this.CurrentSet = this.getCurrentSet();
+    this.pagesArray = this.getPagesList();    
+  }
+
+  getCurrentSet() {
+    return Math.floor(this.currentPage / this.maxRecordInPage);
   }
 
   nextSet() {
@@ -57,7 +70,9 @@ export class PagerComponent implements OnInit {
   }
 
   isLastSet() {
-    return this.CurrentSet >= (Math.ceil(this.totalPageCount() / this.SetSize) - 1);
+    return (
+      this.CurrentSet >= Math.ceil(this.totalPageCount() / this.SetSize) - 1
+    );
   }
 
   getPagesList() {
@@ -65,10 +80,13 @@ export class PagerComponent implements OnInit {
       return [];
     }
 
-    const currentSetStarting = (this.SetSize * this.CurrentSet);
+    const currentSetStarting = this.SetSize * this.CurrentSet;
     const pagesArray = [];
-    const currentSetEnding = Math.min(currentSetStarting + this.SetSize, this.totalPageCount());
-    for (let i = currentSetStarting + 1; i < currentSetEnding; i++) {
+    const currentSetEnding = Math.min(
+      currentSetStarting + this.SetSize,
+      this.totalPageCount()
+    );
+    for (let i = currentSetStarting + 1; i <= currentSetEnding; i++) {
       pagesArray.push(i);
     }
 
@@ -76,6 +94,9 @@ export class PagerComponent implements OnInit {
   }
 
   pageChange(pageNumber) {
-    this.onPageChange.emit({query: this.query, currentPageNumber: pageNumber});
+    this.onPageChange.emit({
+      query: this.query,
+      currentPageNumber: pageNumber
+    });
   }
 }

@@ -1,4 +1,7 @@
-<div class="answer">
-    <a routerLink="/view" [queryParams]="{url: result.url}">{{result.url}}</a>
-    <div [innerHtml]="result.text | highlightText: searchTerm"></div>
+<div class="list">
+    <div class="search">
+        <a routerLink="/view" [queryParams]="{url: result.url}">{{result.url}}</a>
+        <div [innerHtml]="result.text | highlightText: searchTerm"></div>
+    </div>
+
 </div>

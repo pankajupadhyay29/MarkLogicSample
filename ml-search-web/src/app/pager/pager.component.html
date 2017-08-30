@@ -1,7 +1,7 @@
-<button *ngIf="!isFirstSet()" (click)="previous()">Previous</button>
+<button class="previous" *ngIf="!isFirstSet()" (click)="previousSet()">Previous</button>
 <span>
-    <button class="page-number" *ngFor="let page of getPagesList()" (click)="pageChange(page)">
+    <button class="page-number" [ngClass]="{'active': page == currentPage}" *ngFor="let page of getPagesList()" (click)="pageChange(page)">
       {{page}}
     </button>
   </span>
-<button *ngIf="!isLastSet()" (click)="next()">Next</button>
+<button class="next" *ngIf="!isLastSet()" (click)="nextSet()">Next</button>

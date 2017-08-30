@@ -1,4 +1,21 @@
-.page-number {
-    border-radius: 50%;
-    margin-left: 8px;
+.page-number,
+.previous,
+.next {
+    background: #ffffff;
+    border: 1px solid;
+    color: #478CF0;
+}
+
+.page-number:not(:last-child) {
+    border-right: none;
+}
+
+.active {
+    background: #478CF0;
+    color: #ffffff;
+}
+
+.previous,
+.next {
+    border-radius: 8px;
 }

@@ -16,8 +16,9 @@ import { of } from 'rxjs/observable/of';
 import { StartSearchAction, ACTION_TYPES, CompleteSearchAction, App_Actions } from '../store/actions';
 import { Query, SearchData } from '../model/models';
 import { BLANK_SEARCH_DATA } from '../store/application-state';
+import { environment } from '../../environments/environment';
 
-const SERVICE_URL = 'http://localhost:3000/search';
+const SERVICE_URL = `${environment.serviceBaseURL}/search`;
 const PAGE_SIZE = 10;
 
 export const SEARCH_DEBOUNCE = new InjectionToken<number>('Search Debounce');

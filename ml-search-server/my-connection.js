@@ -1,10 +1,10 @@
 module.exports = {
     connInfo: {
         database: 'Test',
-        host: 'Machine Name',
+        host: 'MarkLogic server',
         port: 8000,
-        user: 'UserName',
-        password: 'Password',
+        user: 'User name',
+        password: 'password', // Please enter database password...
         authType: 'DIGEST' // The default auth
     }
 };

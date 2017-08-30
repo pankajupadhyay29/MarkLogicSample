@@ -14,3 +14,7 @@
 .list:nth-child(even) {
     background: #ebebeb;
 }
+
+.paging {
+    margin-left: 40%;
+}

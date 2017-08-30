@@ -10,8 +10,12 @@
 }
 
 .btn {
-    height: 40px;
+    height: 37px;
     margin-left: 5px;
     width: 60px;
     display: inline-block;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    background: green;
 }

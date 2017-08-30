@@ -9,6 +9,9 @@
         <div *ngFor="let search of searchResults$ | async" class="list">
             <app-search-result *ngIf="search" [result]="search" [searchTerm]="searchQuery$ | async"></app-search-result>
         </div>
-        <app-pager [query]="searchQuery$ | async" (onPageChange)="onPageChange($event)" [totalCount]="totalCount$ | async" [currentPage]="pageNumber$ | async" [maxRecordInPage]="10"></app-pager>
+        <div class="paging">
+            <app-pager [query]="searchQuery$ | async" (onPageChange)="onPageChange($event)" [totalCount]="totalCount$ | async" [currentPage]="pageNumber$ | async" [maxRecordInPage]="10"></app-pager>
+        </div>
+
     </div>
 </div>

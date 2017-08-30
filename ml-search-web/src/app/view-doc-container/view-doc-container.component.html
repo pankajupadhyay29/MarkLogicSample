@@ -1,9 +1,32 @@
-<p>
-    view-doc-container works!
-</p>
-<p>
-    URL: {{url$ | async}}
-</p>
-<p>
-    document: {{doc$ | async | json}}
-</p>
+<div class="container">
+    <div class="user_data">
+
+        <img src="/assets/user.png" alt="" class="circle">
+
+        <div class="user">
+            <app-user-details [owner]="owner | async"></app-user-details>
+        </div>
+    </div>
+    <div>
+        <div class="content_title">
+            <div>
+                <app-question [title]="title | async" [text]="text | async"></app-question>
+                <label class="heading">Comments</label>
+                <hr class="heading-separator" />
+                <div class="comments" *ngFor="let comment of comments$ | async">
+                    <app-comments [comment]="comment.text">
+                    </app-comments>
+                    <hr class="separator" />
+                </div>
+                <div class="margin-top-50">
+                    <div class="answers" *ngFor="let answer of answers$ | async">
+                        <label class="heading">Answer</label>
+                        <hr class="heading-separator">
+                        <app-answer [ans]="answer.text" [id]="answer.id" [accepted]="ansId |async"></app-answer>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

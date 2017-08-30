@@ -77,6 +77,25 @@ export class ViewDocEffect {
     document.text = content.text;
     document.tags = content.tags;
     document.owner = { id: content.owner.id, userName: content.owner.userName, displayName: content.owner.displayName };
+    document.acceptedAnswerId = content.acceptedAnswerId;
+
+    for (var j = 0; j < content.answers.length; j++) {
+      const answer = content.answers[j];      
+      document.answers.push({
+        id: answer.id,
+        text: answer.text, 
+        owner: {id: answer.owner.id , userName: answer.owner.userName, displayName: answer.owner.displayName }
+      });
+    }
+
+    for (var i = 0; i < content.comments.length; i++) {
+      const comment = content.comments[i]; 
+      document.comments.push({
+        id: comment.id,
+        owner: {id: comment.owner.id , userName: comment.owner.userName, displayName: comment.owner.displayName },
+        text: comment.text
+      });
+    }
 
     return document;
   }

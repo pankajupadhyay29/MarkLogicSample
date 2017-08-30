@@ -15,29 +15,30 @@ export interface SearchData {
 }
 
 export interface Document {
-  id: number;
+  id: string;
   owner: User;
   tags: Array<string>;
   comments: Array<Comment>;
   answers: Array<Answer>;
   text: string;
   title: string;
-  acceptedAnswerId: number;
+  acceptedAnswerId: string;
 }
 
 export interface User {
-  id: number;
+  id: string;
   userName: string;
   displayName: string;
 }
 
 export interface Answer {
+  id: string
   text: string;
   owner: User;
 }
 
 export interface Comment {
-  id: number;
+  id: string;
   owner: User;
   text: string;
 }

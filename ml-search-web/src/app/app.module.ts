@@ -17,6 +17,10 @@ import { SearchContainerComponent } from './search-container/search-container.co
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { ViewDocContainerComponent } from './view-doc-container/view-doc-container.component';
+import { CommentsComponent } from './comments/comments.component';
+import { AnswerComponent } from './answer/answer.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { QuestionComponent } from './question/question.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { ViewDocContainerComponent } from './view-doc-container/view-doc-contain
     SearchBoxComponent,
     SearchResultComponent,
      PagerComponent,
-     ViewDocContainerComponent
+     ViewDocContainerComponent,
+     CommentsComponent,
+     AnswerComponent,
+     UserDetailsComponent,
+     QuestionComponent
   ],
   imports: [
     BrowserModule,

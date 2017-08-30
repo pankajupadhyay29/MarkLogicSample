@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { Router, RouterOutlet, RouterModule } from "@angular/router";
+import { RouterTestingModule } from '@angular/router/testing';
 import { SearchResultComponent } from './search-result.component';
+
+class MockRouter { public navigate() {}; }
+class MockComponent extends Component {}
 
 describe('SearchResultComponent', () => {
   let component: SearchResultComponent;
@@ -8,7 +12,15 @@ describe('SearchResultComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchResultComponent ]
+      imports: [ 
+        RouterTestingModule
+      ],
+      declarations: [ SearchResultComponent ],
+      providers: [
+        {provide: Router,  useClass: MockRouter },
+        RouterOutlet,
+        RouterModule
+      ],
     })
     .compileComponents();
   }));

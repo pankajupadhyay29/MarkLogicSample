@@ -33,10 +33,10 @@ export const INITIAL_SEARCH_STATE = {
 };
 
 export const EMPTY_DOC: Document = {
-   id: 0,
-   acceptedAnswerId: 0,
+   id: '',
+   acceptedAnswerId: '',
    text: '',
-   owner: { userName: '', displayName: '', id: 0 },
+   owner: { userName: '', displayName: '', id: '' },
    comments: [],
    answers: [],
    tags: [],

@@ -59,6 +59,10 @@ export const hasComments = (state: AppState) => state.view_doc.doc.comments.leng
 
 export const hasAnswers = (state: AppState) => state.view_doc.doc.answers.length > 0;
 
+<<<<<<< HEAD
 export const noData = (state: AppState) => (!state.search.isSearching 
   && state.search.searchQuery.searchTerm.length > 0 
   && state.search.searchData.totalCount == 0);
+=======
+
+>>>>>>> 08e9d4fef9cbf8b14cb537907526eb001ad09ce3

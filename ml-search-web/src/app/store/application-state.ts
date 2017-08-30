@@ -1,6 +1,12 @@
-import { SearchResult, Query, SearchData } from '../model/models';
+import { SearchResult, Query, SearchData, Document, Answer } from '../model/models';
 export interface AppState {
   search: SearchState;
+  view_doc: ViewDocumentState;
+}
+
+export interface ViewDocumentState {
+  url: string;
+  doc: Document;
 }
 
 export interface SearchState {
@@ -26,6 +32,23 @@ export const INITIAL_SEARCH_STATE = {
   isSearching: false
 };
 
+export const EMPTY_DOC: Document = {
+   id: 0,
+   acceptedAnswerId: 0,
+   text: '',
+   owner: { userName: '', displayName: '', id: 0 },
+   comments: [],
+   answers: [],
+   tags: [],
+   title: ''
+};
+
+export const INITIAL_VIEW_DOC_STATE = {
+  url: '',
+  doc: EMPTY_DOC
+};
+
 export const INITIAL_STATE: AppState = {
-  search: INITIAL_SEARCH_STATE
+  search: INITIAL_SEARCH_STATE,
+  view_doc: INITIAL_VIEW_DOC_STATE
 };

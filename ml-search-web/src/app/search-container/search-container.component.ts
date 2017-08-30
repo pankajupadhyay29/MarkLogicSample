@@ -1,10 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Location } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import { SearchData, SearchResult, Query } from '../model/models';
 import { AppState } from '../store/application-state';
 import * as appReducer from '../store/reducers';
 import { CompleteSearchAction, StartSearchAction } from '../store/actions';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search-container',
@@ -19,7 +21,7 @@ export class SearchContainerComponent implements OnInit {
   totalCount$: Observable<number>;
   pageNumber$: Observable<number>;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private location: Location, private route: ActivatedRoute) {
     this.searchQuery$ = store.select(appReducer.getSearchTerm);
     this.searchResults$ = store.select(appReducer.getSearchResults);
     this.loading$ = store.select(appReducer.getSearchLoading);
@@ -28,11 +30,15 @@ export class SearchContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    const query = this.route.snapshot.queryParams['query'];
+    if (query) {
+      this.onSearch(query);
+    }
   }
 
   onSearch(text) {
     const query: Query = {searchTerm: text, pageNumber: 1};
+    this.location.go ('/', `query=${text}`);
     this.store.dispatch(new StartSearchAction(query));
   }
 
